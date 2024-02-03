@@ -1,0 +1,15 @@
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\bin\Debug\net6.0\StudentsScores.Repository.deps.json
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\bin\Debug\net6.0\StudentsScores.Repository.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\bin\Debug\net6.0\StudentsScores.Repository.pdb
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\bin\Debug\net6.0\StudentsScores.core.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\bin\Debug\net6.0\StudentsScores.core.pdb
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\StudentsScores.Repository.csproj.AssemblyReference.cache
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\StudentsScores.Repository.GeneratedMSBuildEditorConfig.editorconfig
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\StudentsScores.Repository.AssemblyInfoInputs.cache
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\StudentsScores.Repository.AssemblyInfo.cs
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\StudentsScores.Repository.csproj.CoreCompileInputs.cache
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\StudentsScores.Repository.csproj.CopyComplete
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\StudentsScores.Repository.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\refint\StudentsScores.Repository.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\StudentsScores.Repository.pdb
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.Repository\obj\Debug\net6.0\ref\StudentsScores.Repository.dll

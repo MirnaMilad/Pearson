@@ -1,0 +1,12 @@
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\bin\Debug\net6.0\StudentsScores.core.deps.json
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\bin\Debug\net6.0\StudentsScores.core.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\bin\Debug\net6.0\StudentsScores.core.pdb
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\StudentsScores.core.csproj.AssemblyReference.cache
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\StudentsScores.core.GeneratedMSBuildEditorConfig.editorconfig
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\StudentsScores.core.AssemblyInfoInputs.cache
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\StudentsScores.core.AssemblyInfo.cs
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\StudentsScores.core.csproj.CoreCompileInputs.cache
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\StudentsScores.core.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\refint\StudentsScores.core.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\StudentsScores.core.pdb
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.core\obj\Debug\net6.0\ref\StudentsScores.core.dll
