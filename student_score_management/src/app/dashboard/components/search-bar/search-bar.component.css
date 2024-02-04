@@ -1,0 +1,8 @@
+input:focus{
+    box-shadow:none;
+}
+
+/* input,
+input::placeholder {
+    font: 0.75rem;
+} */

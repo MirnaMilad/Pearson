@@ -10,5 +10,5 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'student_score_management';
+  title = 'Student score board';
 }
