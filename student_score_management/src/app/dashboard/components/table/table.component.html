@@ -6,12 +6,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of [1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10]">
-        <th class="py-2" scope="row">1</th>
-        <td class="py-2">Mark</td>
-        <td class="py-2">Otto</td>
-        <td class="py-2">mdo</td>
-        <td class="py-2">mdo</td>
+      <tr *ngFor="let item of studentData">
+        <th class="py-2" scope="row">{{item.studentId}}</th>
+        <td class="py-2">{{item.name}}</td>
+        <td class="py-2">
+          <div *ngFor="let score of item.scores">{{score.learningObjective}}</div>
+        </td>
+        <td class="py-2"><div *ngFor="let score of item.scores">{{score.score}}</div></td>
+        <td class="py-2">{{item.subject.value}}</td>
       </tr>
     </tbody>
   </table>
