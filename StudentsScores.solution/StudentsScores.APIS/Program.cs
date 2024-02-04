@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using StudentsScores.APIS.helpers;
 using StudentsScores.core.Entities;
 using StudentsScores.core.Repositories;
 using StudentsScores.Repository;
 using StudentsScores.Repository.Data;
+using System.Text.Json.Serialization;
 
 namespace StudentsScores.APIS
 {
@@ -15,9 +17,23 @@ namespace StudentsScores.APIS
 
             #region Configure Services Add services to the container.
             builder.Services.AddControllers();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    builder => builder.WithOrigins("http://localhost:4200")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod()
+                                      .AllowCredentials());
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddAutoMapper(typeof(MappingProfiles));
+            builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
             builder.Services.AddDbContext<StoreContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -56,7 +72,8 @@ namespace StudentsScores.APIS
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseStaticFiles();
+            app.UseCors("AllowOrigin");
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

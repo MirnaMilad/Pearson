@@ -15,7 +15,7 @@ namespace StudentsScores.core.Entities
     {
         public int StudentId { get; set; }
         private Student _student;
-        public Student Student
+        private Student Student
         {
             get => _student;
             set

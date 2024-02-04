@@ -14,7 +14,7 @@ namespace StudentsScores.Repository.Data.Configurations
         public void Configure(EntityTypeBuilder<Student> builder)
         {
             builder.HasMany(S => S.Scores)
-                 .WithOne(S => S.Student)
+                 .WithOne()
                  .HasForeignKey(S => S.StudentId);
 
             builder.HasOne(S => S.Subject)

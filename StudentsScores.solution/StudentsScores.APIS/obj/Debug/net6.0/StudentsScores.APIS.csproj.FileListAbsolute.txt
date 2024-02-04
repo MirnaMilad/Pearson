@@ -70,3 +70,5 @@ G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.APIS\bi
 G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.APIS\bin\Debug\net6.0\StudentsScores.core.pdb
 G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.APIS\bin\Debug\net6.0\Humanizer.dll
 G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.APIS\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.APIS\bin\Debug\net6.0\AutoMapper.dll
+G:\Pearson Technical Task\Pearson\StudentsScores.solution\StudentsScores.APIS\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

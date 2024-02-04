@@ -13,7 +13,7 @@ namespace StudentsScores.core.Entities
         public string Name { get; set; }
         public int SubjectId { get; set; }
         public Subject Subject { get; set; }
-        public ICollection<ScoreSubject> Scores { get; set; }
+        public IEnumerable<ScoreSubject> Scores { get; set; }
 
     }
 }

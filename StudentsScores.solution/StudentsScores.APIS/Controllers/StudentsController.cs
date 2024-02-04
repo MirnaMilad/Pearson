@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StudentsScores.APIS.DTOS;
 using StudentsScores.core.Entities;
 using StudentsScores.core.Repositories;
 
@@ -8,18 +10,21 @@ namespace StudentsScores.APIS.Controllers
     public class StudentsController : ApiBaseController
     {
         private readonly IGenericRepository<Student> _studentRepo;
+        private readonly IMapper _mapper;
 
-        public StudentsController(IGenericRepository<Student> StudentRepo)
+        public StudentsController(IGenericRepository<Student> StudentRepo , IMapper mapper)
         {
             _studentRepo = StudentRepo;
+            _mapper = mapper;
         }
         //Get All Students
         //BaseUrl/api/Students
         [HttpGet]
-        public async Task<IActionResult> GetStudents()
+        public async Task<ActionResult> GetStudents()
         {
             var Students = await _studentRepo.GetAllAsync();
-            return Ok(Students);
+            var MappedStudents = _mapper.Map<IEnumerable<Student> , IEnumerable<StudentDto>>(Students);
+            return Ok(MappedStudents);
         }
     }
 }

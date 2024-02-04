@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace StudentsScores.Repository
 {
@@ -20,6 +21,20 @@ namespace StudentsScores.Repository
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
-        => await _dbContext.Set<T>().ToListAsync();
+        {
+            //(IEnumerable<T>) await _dbContext.Students.Include(S => S.Subject).Include(S => S.Scores.Where(score => score.StudentId == S.Id)).ToListAsync();
+        var studentsWithSubjectsAndFilteredScores = await _dbContext.Students
+    .Include(s => s.Subject)
+    .ToListAsync();
+
+        foreach (var student in studentsWithSubjectsAndFilteredScores)
+        {
+            // Load filtered scores for each student
+           student.Scores = await _dbContext.Scores
+                .Where(score => score.StudentId == student.Id)
+            .ToListAsync();
+        }
+            return (IEnumerable<T>) studentsWithSubjectsAndFilteredScores;
+}
     }
 }

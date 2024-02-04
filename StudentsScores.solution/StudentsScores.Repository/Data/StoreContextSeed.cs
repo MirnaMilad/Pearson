@@ -1,10 +1,13 @@
-﻿using StudentsScores.core.Entities;
+﻿using StudentsScores.APIS.DTOS;
+using StudentsScores.core.Entities;
+using StudentsScores.core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace StudentsScores.Repository.Data
 {
@@ -18,12 +21,26 @@ namespace StudentsScores.Repository.Data
                 {
                     var filePath = "../StudentsScores.Repository/Data/DataSeed/Scores.json";
                     var ScoresData = File.ReadAllText(filePath);
-                    var Scores = JsonSerializer.Deserialize<List<ScoreSubject>>(ScoresData);
-                    if (Scores?.Count > 0)
+                    var studentsData = JsonSerializer.Deserialize<List<StudentSeedData>>(ScoresData);
+                    if (studentsData?.Count > 0)
                     {
-                        foreach (var score in Scores)
+                        foreach (var studentData in studentsData)
                         {
-                            await dbContext.Set<ScoreSubject>().AddAsync(score);
+                            var student = new Student
+                            {
+                                Id = studentData.StudentID,
+                                Name = studentData.Name,
+                                SubjectId = (int)Enum.Parse<SubjectEnum>(studentData.Subject)
+                            };
+
+                            var scoreSubject = new ScoreSubject
+                            {
+                                StudentId = student.Id,
+                                LearningObjective = studentData.LearningObjective,
+                                Score = studentData.Score
+                            };
+
+                            await dbContext.Set<ScoreSubject>().AddAsync(scoreSubject);
                         }
 
                         await dbContext.SaveChangesAsync();

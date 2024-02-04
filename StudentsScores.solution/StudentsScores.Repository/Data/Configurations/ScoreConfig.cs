@@ -13,10 +13,10 @@ namespace StudentsScores.Repository.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<ScoreSubject> builder)
         {
-            builder.HasOne(S => S.Student)
-                .WithMany()
-                .HasForeignKey(S => S.StudentId)
-                .OnDelete(DeleteBehavior.Cascade);
+            //builder.HasOne(S => S.Student)
+            //    .WithMany()
+            //    .HasForeignKey(S => S.StudentId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(S => S.LearningObjective)
                 .HasConversion<string>();
