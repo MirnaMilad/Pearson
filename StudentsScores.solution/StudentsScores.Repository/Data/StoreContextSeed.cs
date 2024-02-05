@@ -37,14 +37,24 @@ namespace StudentsScores.Repository.Data
                                 }
                                 else
                                 {
-                                    var student = new Student
+                                    var existingStudentByName = dbContext.Students.FirstOrDefault(S=>S.Name == studentData.Name);
+                                    Student student;
+                                    if(existingStudentByName == null)
                                     {
-                                        // Don't set the Id here, let the database generate it
-                                        Name = studentData.Name,
-                                        SubjectId = existingSubject.Id
-                                    };
-                                    await dbContext.Students.AddAsync(student);
-                                    await dbContext.SaveChangesAsync();
+                                        student = new Student
+                                        {
+                                            // Don't set the Id here, let the database generate it
+                                            Name = studentData.Name,
+                                            SubjectId = existingSubject.Id
+                                        };
+                                        await dbContext.Students.AddAsync(student);
+                                        await dbContext.SaveChangesAsync();
+                                    }
+                                    else { 
+                                    student = existingStudentByName;
+                                    }
+                                   
+                                    
 
                                     var scoreSubject = new ScoreSubject
                                     {
