@@ -22,19 +22,35 @@ namespace StudentsScores.Repository
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            //(IEnumerable<T>) await _dbContext.Students.Include(S => S.Subject).Include(S => S.Scores.Where(score => score.StudentId == S.Id)).ToListAsync();
-        var studentsWithSubjectsAndFilteredScores = await _dbContext.Students
-    .Include(s => s.Subject)
-    .ToListAsync();
+            var studentsWithSubjectsAndFilteredScores = await _dbContext.Students
+        .Include(s => s.Subject)
+        .ToListAsync();
 
-        foreach (var student in studentsWithSubjectsAndFilteredScores)
-        {
-            // Load filtered scores for each student
-           student.Scores = await _dbContext.Scores
-                .Where(score => score.StudentId == student.Id)
-            .ToListAsync();
+            foreach (var student in studentsWithSubjectsAndFilteredScores)
+            {
+                // Load filtered scores for each student
+                student.Scores = await _dbContext.Scores
+                     .Where(score => score.StudentId == student.Id)
+                 .ToListAsync();
+            }
+            return (IEnumerable<T>)studentsWithSubjectsAndFilteredScores;
         }
-            return (IEnumerable<T>) studentsWithSubjectsAndFilteredScores;
-}
+
+        public async Task<IEnumerable<T>> SearchStudentsAsync(string keyword)
+        {
+            {
+                var students = await _dbContext.Students.Include(S=>S.Subject).Where(S =>
+                    S.Name.Contains(keyword)).ToListAsync();
+                foreach (var student in students)
+                {
+                    student.Scores = await _dbContext.Scores
+                         .Where(score => score.StudentId == student.Id)
+                     .ToListAsync();
+                }
+                return (IEnumerable<T>) students;
+            
+            }
+                    
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace StudentsScores.core.Repositories
     public interface IGenericRepository<T>where T : BaseEntity
     {
         Task<IEnumerable<T>> GetAllAsync();
+        Task<IEnumerable<T>> SearchStudentsAsync(string keyword);
     }
 }

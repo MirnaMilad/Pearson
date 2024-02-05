@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StudentsScores.APIS.DTOS;
@@ -25,6 +26,22 @@ namespace StudentsScores.APIS.Controllers
             var Students = await _studentRepo.GetAllAsync();
             var MappedStudents = _mapper.Map<IEnumerable<Student> , IEnumerable<StudentDto>>(Students);
             return Ok(MappedStudents);
+        }
+
+        [HttpGet("search/{keyword}")]
+        public async Task<IActionResult> SearchStudentsAsync(
+         string keyword)
+        {
+            try
+            {
+                var Students = await _studentRepo.SearchStudentsAsync(keyword);
+                var MappedStudents = _mapper.Map<IEnumerable<Student>, IEnumerable<StudentDto>>(Students);
+                return Ok(MappedStudents);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error");
+            }
         }
     }
 }

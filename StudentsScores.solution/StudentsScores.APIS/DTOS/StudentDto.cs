@@ -6,7 +6,7 @@ namespace StudentsScores.APIS.DTOS
     {
         public int StudentId { get; set; }
         public string Name { get; set; }
-        public Subject Subject { get; set; }
+        public string Subject { get; set; }
         public IEnumerable<ScoreSubject> Scores { get; set; }
     }
 }

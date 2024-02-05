@@ -10,13 +10,19 @@ namespace StudentsScores.APIS.helpers
         public MappingProfiles()
         {
             CreateMap<ScoreSubject, ScoreDto>();
-            CreateMap<SubjectEnum, Subject>();
             CreateMap<Student, StudentDto>()
-                .ForMember(d => d.Subject, O => O.MapFrom(S => S.Subject.Value))
-                .ForMember(d => d.Scores, O => O.MapFrom(S => S.Scores));
-
-            
-
+                .ForMember(d => d.StudentId, o => o.MapFrom(S => S.Id))
+                .ForMember(d => d.Subject, o => o.MapFrom(S => S.Subject.Value));
+                //.ForMember(d => dest.Scores, o => o.ResolveUsing<ScoresResolver>());
         }
+
+        public class ScoresResolver : IValueResolver<Student, StudentDto, List<ScoreDto>>
+        {
+            public List<ScoreDto> Resolve(Student source, StudentDto destination, List<ScoreDto> destMember, ResolutionContext context)
+            {
+                return context.Mapper.Map<List<ScoreDto>>(source.Scores);
+            }
+        }
+
     }
 }
