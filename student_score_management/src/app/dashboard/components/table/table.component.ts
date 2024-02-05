@@ -1,7 +1,7 @@
 import { StudentDataApiService } from './../../services/student-data-api.service';
 import { TableService } from './../../services/table.service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Student } from '../../models/student.model';
 
@@ -13,19 +13,12 @@ import { Student } from '../../models/student.model';
   styleUrl: './table.component.css',
 })
 export class TableComponent {
+  @Input() studentData: Student[];
   tableHeader: string[];
-  studentData: Student[];
   constructor(
-    private tableService: TableService,
-    private studentDataApiService: StudentDataApiService
+    private tableService: TableService
   ) {
     this.tableHeader = this.tableService.tableHeader;
-    this.getStudentsData();
   }
 
-  getStudentsData() {
-    this.studentDataApiService.getStudentsData().subscribe(
-      res=>this.studentData = res
-    )
-  }
 }

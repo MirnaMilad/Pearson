@@ -13,6 +13,11 @@ export class StudentDataApiService {
     this.baseUrl = environment.baseUrl;
    }
 
+   Search(keyword){
+    const url = this.baseUrl + '/Students/search/' + keyword ;
+    return this.http.get<Student[]>(url);
+   }
+
    getStudentsData(){
     const url = this.baseUrl + '/Students';
     return this.http.get<Student[]>(url);
