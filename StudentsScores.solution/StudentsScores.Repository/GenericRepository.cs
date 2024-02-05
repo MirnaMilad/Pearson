@@ -30,7 +30,7 @@ namespace StudentsScores.Repository
             {
                 // Load filtered scores for each student
                 student.Scores = await _dbContext.Scores
-                     .Where(score => score.StudentId == student.Id)
+                     .Where(score => score.StudentId == student.Id).OrderBy(score => score.Score)
                  .ToListAsync();
             }
             return (IEnumerable<T>)studentsWithSubjectsAndFilteredScores;
